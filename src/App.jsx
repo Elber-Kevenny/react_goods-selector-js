@@ -18,11 +18,11 @@ export const goods = [
 export const App = () => {
   const [selectedGood, setSelectedGood] = useState('Jam');
   const hasSelection = typeof selectedGood === 'string' && selectedGood !== '';
-  const enrichedGoods = goods.map(good => ({
-    // good é cada elemento, tais como: Dumplings, carrot e etc. o map, pega cada elemento good e coloca em um novo array.
+  const enrichedGoods = goods.map(good => ({ name: good }));
+/*    // good é cada elemento, tais como: Dumplings, carrot e etc. o map, pega cada elemento good e coloca em um novo array.
     ...good,
     name: good, // adiciona name se não existir
-  }));
+  })); */
 
   return (
     <main className="section container">
@@ -48,6 +48,7 @@ export const App = () => {
       <table className="table">
         <tbody>
           {enrichedGoods.map(good => (
+
             <tr
               data-cy="Good"
               key={good.name}
